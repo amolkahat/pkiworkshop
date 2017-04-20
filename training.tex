@@ -17,7 +17,7 @@
 % Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 
-\documentclass[a4paper]{article}
+\documentclass[12pt]{report}
 \title{Workshop on Public Key Infrastructure \\
 and \\
 Red Hat Certificate System}
@@ -39,6 +39,7 @@ Red Hat Certificate System}
     linktoc=all,     
     linkcolor=blue,
 }
+\usepackage[right=1.2 in, left=1.2 in, top=1.5 in, bottom=1.5 in]{geometry}
 \bibliographystyle{plain}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -84,7 +85,8 @@ Red Hat Certificate System}
 \begin{document}
 \maketitle
 \tableofcontents
-\section{Introduction to Public Key Cryptography}
+
+\chapter{Introduction to Public Key Cryptography}
 Before we start discussing about public key cryptography, we will in general discuss about how systems communicate
 and what are the various threat models that are associated with the communication medium and what are the tools to 
 overcome them.~\cite{eric}
@@ -167,7 +169,7 @@ When Sender and recipient share the same key(which must be kept secret) is refer
 referred to as \textit{Secret Key Cryptography} as opposed to \textit{Public Key Cryptography}~\cite{eric}.
 \begin{figure}[h]
     \centering
-    \includegraphics[width=50mm]{symmetric.png}
+    \includegraphics[width=50mm]{Images/symmetric.png}
     \caption{Symmetric Encryption ~\cite{RedHat:Symmetric}}
 \end{figure}
 \subsubsection{Assymetric Encryption}
@@ -181,13 +183,13 @@ referred to as \textit{Secret Key Cryptography} as opposed to \textit{Public Key
     \item It is possible to use public-key encryption to send a symmetric key, which can then be used to encrypt additional data.
         \begin{figure}[h]
             \centering
-            \includegraphics[width=80mm]{assymetric.png}
+            \includegraphics[width=80mm]{Images/assymetric.png}
             \caption{Assymetric Encryption}
         \end{figure}
     \item Reverse of the above figure also happens i.e. encrypt with private key and decrypt with public-key. But not useful for sensitive information
         \begin{figure}[h]
         \centering
-        \includegraphics[width=80mm]{digitalsignature.png}
+        \includegraphics[width=80mm]{Images/digitalsignature.png}
         \caption{Digital Signature ~\cite{RedHat:CSoverview}} 
         \end{figure}
     \item There's a problem with the above method, how would the parties get each other's public-key ? 
@@ -370,7 +372,7 @@ but with a key, So the MAC is dependent on both the key and the message being MA
                 \item The server sends a MAC of all the handshake messages to the client
                 \item \begin{figure}[ht!]
                         \centering
-                        \includegraphics[width=40mm]{sslhandshake1.png}
+                        \includegraphics[width=40mm]{Images/sslhandshake1.png}
                         \caption{SSL Handshake}
                       \end{figure}
                 \item Step:1 corresponds to single SSL Handshake message, Client Hello
@@ -386,7 +388,7 @@ but with a key, So the MAC is dependent on both the key and the message being MA
                     all the previous handshake messages
                 \item \begin{figure}[ht!]
                         \centering
-                        \includegraphics[width=40mm]{sslhandshake2.png}
+                        \includegraphics[width=40mm]{Images/sslhandshake2.png}
                         \caption{SSL Handshake}
                       \end{figure}
                 \item \textbf{Resuming Session}
@@ -414,7 +416,7 @@ but with a key, So the MAC is dependent on both the key and the message being MA
                     that encrypted payload which we refer to as a record
                 \item \begin{figure}[ht!]
                         \centering
-                        \includegraphics[width=50mm]{ssldatafrag.png}
+                        \includegraphics[width=50mm]{Images/ssldatafrag.png}
                         \caption{ssl data fragment and protection ~\cite{eric}}
                       \end{figure}
                 \item The record header provides the information for the other end to interpret the record. It contains:
@@ -428,7 +430,7 @@ but with a key, So the MAC is dependent on both the key and the message being MA
                     sent to indicate that those keys will now be used.
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=30mm]{ssl-overview.png}
+                        \includegraphics[width=30mm]{Images/ssl-overview.png}
                         \caption{SSL Overview}
                     \end{figure}
             \end{itemize}
@@ -437,7 +439,7 @@ but with a key, So the MAC is dependent on both the key and the message being MA
 Below is a simplified architectural model of Public Key Infrastructure using X.509 (PKIX) Specifications
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=70mm]{pki-architectural-model.png}
+    \includegraphics[width=70mm]{Images/pki-architectural-model.png}
     \caption{PKI Architectural Model ~\cite{5280}}
 \end{figure}
 \subsection{Common Terms used in PKI}
@@ -669,7 +671,7 @@ Below is a simplified architectural model of Public Key Infrastructure using X.5
                             \begin{itemize}
                                 \item \begin{figure}[ht!]
                                     \centering
-                                    \includegraphics[width=70mm]{KeyUsage1.png}
+                                    \includegraphics[width=70mm]{Images/KeyUsage1.png}
                                     \caption{Key Usage restrictions}
                                 \end{figure}
                             \end{itemize}
@@ -897,7 +899,7 @@ Below is a simplified architectural model of Public Key Infrastructure using X.5
 
                                 \begin{figure}[ht!]
                                     \centering
-                                    \includegraphics[width=65mm]{crl-aki.png}
+                                    \includegraphics[width=65mm]{Images/crl-aki.png}
                                     \caption{CRL Authority Key identifier}
                                 \end{figure}
                         \end{itemize}
@@ -924,7 +926,7 @@ Below is a simplified architectural model of Public Key Infrastructure using X.5
                         \begin{itemize}
                             \item \begin{figure}[ht!]
                                     \centering
-                                    \includegraphics[width=80mm]{delta-crl-extension.png}
+                                    \includegraphics[width=80mm]{Images/delta-crl-extension.png}
                                     \caption{Delta CRL Indicator Extension}
                                 \end{figure}
                         \end{itemize}
@@ -937,7 +939,7 @@ Below is a simplified architectural model of Public Key Infrastructure using X.5
                         \begin{itemize}
                             \item \begin{figure}[ht!]
                                     \centering
-                                    \includegraphics[width=80mm]{issuing-distribution-point.png}
+                                    \includegraphics[width=80mm]{Images/issuing-distribution-point.png}
                                     \caption{Issuing Distribution Point extension}
                                   \end{figure}
                         \end{itemize}
@@ -1044,7 +1046,7 @@ authorityKeyIdentifier=keyid
         \end{lstlisting}
         \begin{lstlisting}[style=bashInputStyle]
 # Generate Key pair
-$ openssl genrsa -out private/pkiuser2.key 2048
+$ openssl genrsa -out private/pkiuser2.key 2048
 
 # Generate Certificate Request 
 $ openssl req -new -key private/pkiuser2.key -out pkiuser2.csr -config openssl.cnf
@@ -1086,7 +1088,7 @@ Common Name (eg, your name or your server's hostname) []:pkiuser3
 Email Address []:pkiuser3@example.org
 
 # CA sign the Certificate request 
-$ openssl ca -config openssl.cnf -extensions usr_cert -days 375 -in pkiuser3.csr -out certs/pkiuser3.cert.pem
+$ openssl ca -config openssl.cnf -extensions usr_cert -days 375 -in pkiuser3.csr -out certs/pkiuser3.cert.pem
 #view the certificate
 $ openssl x509 -in certs/pkiuser3.cert.pem -noout -text
         \end{lstlisting}
@@ -1099,7 +1101,7 @@ keyUsage = keyAgreement, digitalSignature
         \end{lstlisting}
         \begin{lstlisting}[style=bashInputStyle]
 # Generate key pair
-$  openssl genrsa -out private/server1.key 2048        
+$  openssl genrsa -out private/server1.key 2048        
 
 #Generate certificate request
 $ openssl req -new -key private/server1.key -out server1.csr -config openssl.cnf
@@ -1140,7 +1142,7 @@ Common Name (eg, your name or your server's hostname) []:pkiuser4
 Email Address []:pkiuser4@example.org
 
 # CA sign the Certificate request 
-$ openssl ca -config openssl.cnf -extensions usr_cert -days 375 -in pkiuser4.csr -out certs/pkiuser4.cert.pem
+$ openssl ca -config openssl.cnf -extensions usr_cert -days 375 -in pkiuser4.csr -out certs/pkiuser4.cert.pem
 
 #view the certificate
 $ openssl x509 -in certs/pkiuser4.cert.pem -noout -text
@@ -1590,7 +1592,7 @@ $ openssl pkcs12 -nocerts -in pki1.pk12 -out pki1.key.pem -nodes
     \end{itemize}
     \begin{figure}[H]
         \centering
-        \includegraphics[width=80mm]{rhcs-subsystem-overview.png}
+        \includegraphics[width=80mm]{Images/rhcs-subsystem-overview.png}
         \caption{RHCS Subsystems ~\cite{RedHat:CSoverview}}
     \end{figure}
 \subsection{Version}
@@ -1683,7 +1685,7 @@ Certificate Manager is the first subsystem that needs to be configured in PKI En
             pkispawn then passes this information to a java servlet which performs the configuration. 
         \begin{figure}[ht!]
             \centering
-            \includegraphics[width=65mm]{pkispawn-ca.png}
+            \includegraphics[width=65mm]{Images/pkispawn-ca.png}
             \caption{Configuring CA subsystem using pkispawn}
         \end{figure}
     \end{itemize}
@@ -1716,7 +1718,7 @@ Certificate Manager is the first subsystem that needs to be configured in PKI En
 \subsubsection{Architecture}
      \begin{figure}[H]
           \centering
-          \includegraphics[width=80mm]{CA-subsystem-Arch3.png}
+          \includegraphics[width=80mm]{Images/CA-subsystem-Arch3.png}
           \caption{CA Subsystem Architecture}
     \end{figure}
 \subsubsection{Interfaces}
@@ -1760,7 +1762,7 @@ Certificate Manager is the first subsystem that needs to be configured in PKI En
                 \item The new certificate is stored in Certificate Managers internal database.
                     \begin{figure}[ht!]
                     \centering
-                    \includegraphics[width=35mm]{enrollment.png}
+                    \includegraphics[width=35mm]{Images/enrollment.png}
                     \caption{Certificate Enrollment}
                     \end{figure}
                 \end{itemize}
@@ -1780,13 +1782,13 @@ Certificate Manager is the first subsystem that needs to be configured in PKI En
             \end{itemize}
             \begin{figure}[ht!]
                 \centering
-                \includegraphics[width=90mm]{CA-profiles-arch.png}
+                \includegraphics[width=90mm]{Images/CA-profiles-arch.png}
                 \caption{Certificate Profile Architecture}
             \end{figure}
             Profile Workflow:
             \begin{figure}[ht!]
                 \centering
-                \includegraphics[width=80mm]{CA-Profiles-workflow.png}
+                \includegraphics[width=80mm]{Images/CA-Profiles-workflow.png}
                 \caption{Certificate Profiles Workflow}
             \end{figure}
             
@@ -1798,14 +1800,14 @@ Certificate Manager is the first subsystem that needs to be configured in PKI En
             enabled it. 
             \begin{figure}[ht!]
                 \centering
-                \includegraphics[width=80mm]{profile-1.png}
+                \includegraphics[width=80mm]{Images/profile-1.png}
                 \caption{Profile Description}
             \end{figure}
             
             The second part of the profile describes the inputs:
             \begin{figure}[ht!]
                 \centering
-                \includegraphics[width=80mm]{profile-2.png}
+                \includegraphics[width=80mm]{Images/profile-2.png}
                 \caption{Profile inputs}
             \end{figure}
             \begin{itemize}
@@ -1817,7 +1819,7 @@ Certificate Manager is the first subsystem that needs to be configured in PKI En
             \end{itemize}
             \begin{figure}[ht!]
                 \centering
-                \includegraphics[width=80mm]{profile-3.png}
+                \includegraphics[width=80mm]{Images/profile-3.png}
                 \caption{Profile output}
             \end{figure}
             Third part of the profile is output, 
@@ -1826,7 +1828,7 @@ Certificate Manager is the first subsystem that needs to be configured in PKI En
             \end{itemize}
             \begin{figure}[ht!]
                 \centering
-                \includegraphics[width=80mm]{profile-4.png}
+                \includegraphics[width=80mm]{Images/profile-4.png}
                 \caption{Profile Policies}
             \end{figure}
 
@@ -1841,7 +1843,7 @@ Certificate Manager is the first subsystem that needs to be configured in PKI En
             Certificate System provides customizable framework from CA's to publish.
             \begin{figure}[h!]
                 \centering
-                \includegraphics[width=40mm]{publishing3.png}
+                \includegraphics[width=40mm]{Images/publishing3.png}
                 \caption{Publishing Architecture}
             \end{figure}
             \begin{itemize}
@@ -2081,7 +2083,7 @@ $ pkidaemon status tomcat Example1-ExtCA1
                             \item Click on Preferences (Upper Right hand Corner, check below image):
                                 \begin{figure}[H]
                                     \centering
-                                    \includegraphics[width=10mm]{firefox-certificates1.png}
+                                    \includegraphics[width=10mm]{Images/firefox-certificates1.png}
                                     \caption{Firefox Preferences}
                                 \end{figure}
                             \item Click Preferences
@@ -2398,7 +2400,7 @@ but can be installed as a standalone subsystem too.
 
         \begin{figure}[H]
             \centering
-            \includegraphics[width=80mm]{pkispawn-kra.png}
+            \includegraphics[width=80mm]{Images/pkispawn-kra.png}
             \caption{pkispawn KRA subsystem}
         \end{figure}
 \end{itemize}
@@ -2442,7 +2444,7 @@ but can be installed as a standalone subsystem too.
 \subsubsection{Architecture}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=80mm]{KRA-Architecture.png}
+    \includegraphics[width=80mm]{Images/KRA-Architecture.png}
     \caption{KRA Architecture}
 \end{figure}
 \subsubsection{Interfaces}
@@ -2467,12 +2469,12 @@ but can be installed as a standalone subsystem too.
         \end{itemize}
         \begin{figure}[H]
             \centering
-            \includegraphics[width=100mm]{key-archival2.png}
+            \includegraphics[width=100mm]{Images/key-archival2.png}
             \caption{Key Archival Workflow}
         \end{figure}
         \begin{figure}[H]
             \centering
-            \includegraphics[width=70mm]{key-archival-process.png}
+            \includegraphics[width=70mm]{Images/key-archival-process.png}
             \caption{Key Archival Process}
         \end{figure}
     \item Key Recovery
@@ -2487,7 +2489,7 @@ but can be installed as a standalone subsystem too.
             \item Recovery request is executed only when m of n agents have granted authorization
             \begin{figure}[H]
                 \centering
-                \includegraphics[width=70mm]{key-recovery.png}
+                \includegraphics[width=70mm]{Images/key-recovery.png}
                 \caption{Key Recovery Process}
             \end{figure}
         \end{itemize}
@@ -2939,7 +2941,7 @@ ca.connector.KRA.transportCert=<new transport cert> [ base64 cert which has been
             OCSP to use same ports as that of CA.
             \begin{figure}[H]
                 \centering
-                \includegraphics[width=80mm]{pkispawn-ocsp.png}
+                \includegraphics[width=80mm]{Images/pkispawn-ocsp.png}
                 \caption{pkispawn OCSP subsystem}
             \end{figure}
     \end{itemize}
@@ -3148,7 +3150,7 @@ $ pki -d -d /opt/rhqa_pki -c 'Secret123' \
 \subsubsection{Architecture}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=80mm]{TMS-workflow.png}
+    \includegraphics[width=80mm]{Images/TMS-workflow.png}
     \caption{Token Management System}
 \end{figure}
 \subsubsection{Common Terms Used with regard to Smartcard}
@@ -3229,7 +3231,7 @@ $ pki -d -d /opt/rhqa_pki -c 'Secret123' \
                                     \item List of Token profiles:
                                         \begin{figure}[H]
                                             \centering
-                                            \includegraphics[width=80mm]{tokenprofiles1.png}
+                                            \includegraphics[width=80mm]{Images/tokenprofiles1.png}
                                             \caption{List of Token Profiles}
                                         \end{figure}
                                 \end{itemize}
@@ -3243,7 +3245,7 @@ $ pki -d -d /opt/rhqa_pki -c 'Secret123' \
                                 TKS to use same ports as that of CA
                             \begin{figure}[H]
                                 \centering
-                                \includegraphics[width=80mm]{pkispawn-tks.png}
+                                \includegraphics[width=80mm]{Images/pkispawn-tks.png}
                                 \caption{Interactive installation of TKS using pkispawn}
                             \end{figure}
                         \end{itemize}
@@ -3253,27 +3255,27 @@ $ pki -d -d /opt/rhqa_pki -c 'Secret123' \
                             \item This sharedSecret is to be created on TKS NSS database using tool called \textbf{tkstool}
                             \begin{figure}[H]
                                 \centering
-                                \includegraphics[width=50mm]{tkstool-create-sharedSecret1.png}
+                                \includegraphics[width=50mm]{Images/tkstool-create-sharedSecret1.png}
                                 \caption{NSS Internal database password}
                             \end{figure}
                             \begin{figure}[H]
                                 \centering
-                                \includegraphics[width=50mm]{tkstool-create-sharedSecret2.png}
+                                \includegraphics[width=50mm]{Images/tkstool-create-sharedSecret2.png}
                                 \caption{tkstool Usage}
                             \end{figure}
                             \begin{figure}[H]
                                 \centering
-                                \includegraphics[width=50mm]{tkstool-create-sharedSecret3.png}
+                                \includegraphics[width=50mm]{Images/tkstool-create-sharedSecret3.png}
                                 \caption{First Session Key}
                             \end{figure}
                             \begin{figure}[H]
                                 \centering
-                                \includegraphics[width=50mm]{tkstool-create-sharedSecret4.png}
+                                \includegraphics[width=50mm]{Images/tkstool-create-sharedSecret4.png}
                                 \caption{Second Session Key}
                             \end{figure}
                             \begin{figure}[H]
                                 \centering
-                                \includegraphics[width=50mm]{tkstool-create-sharedSecret5.png}
+                                \includegraphics[width=50mm]{Images/tkstool-create-sharedSecret5.png}
                                 \caption{Third Session Key}
                             \end{figure}
                             \item tkstool utility prints out the key shares and KCV values for each of the three
@@ -3288,12 +3290,12 @@ $ pki -d -d /opt/rhqa_pki -c 'Secret123' \
                                     TPS to use same ports as that of CA
                                 \begin{figure}[H]
                                     \centering
-                                    \includegraphics[width=80mm]{pkispawn-tps.png}
+                                    \includegraphics[width=80mm]{Images/pkispawn-tps.png}
                                     \caption{Interactive installation of TKS using pkispawn}
                                 \end{figure}
                                 \begin{figure}[H]
                                     \centering
-                                    \includegraphics[width=80mm]{pkispawn-tps2.png}
+                                    \includegraphics[width=80mm]{Images/pkispawn-tps2.png}
                                     \caption{Continuation of pkispawn}
                                 \end{figure}
                             \item Import SharedSecret
@@ -3303,22 +3305,22 @@ $ pki -d -d /opt/rhqa_pki -c 'Secret123' \
                                 \end{itemize}
                                 \begin{figure}[H]
                                     \centering
-                                    \includegraphics[width=80mm]{tkstool-import-sharedSecret1.png}
+                                    \includegraphics[width=80mm]{Images/tkstool-import-sharedSecret1.png}
                                     \caption{Get NSS Password of TPS NSS database}
                                 \end{figure}
                                 \begin{figure}[H]
                                     \centering
-                                    \includegraphics[width=80mm]{tkstool-import-sharedSecret2.png}
+                                    \includegraphics[width=80mm]{Images/tkstool-import-sharedSecret2.png}
                                     \caption{tkstool to import first session key}
                                 \end{figure}
                                 \begin{figure}[H]
                                     \centering
-                                    \includegraphics[width=80mm]{tkstool-import-sharedSecret4.png}
+                                    \includegraphics[width=80mm]{Images/tkstool-import-sharedSecret4.png}
                                     \caption{tkstool to import second session key}
                                 \end{figure}
                                 \begin{figure}[H]
                                     \centering
-                                    \includegraphics[width=80mm]{tkstool-import-sharedSecret5.png}
+                                    \includegraphics[width=80mm]{Images/tkstool-import-sharedSecret5.png}
                                     \caption{tkstool to import third session key}
                                 \end{figure}
                         \end{itemize}
@@ -3367,7 +3369,7 @@ $ yum install esc coolkey
                              without having to configure the Enterprise Security Client manually to locate the correct server and URL.
                              \begin{figure}[H]
                                  \centering
-                                 \includegraphics[width=80mm]{phonehomeurl.png}
+                                 \includegraphics[width=80mm]{Images/phonehomeurl.png}
                                  \caption{ESC Phone Home URL ~\cite{RedHat:smartcard}}
                              \end{figure}
                     \end{itemize}
@@ -3406,26 +3408,26 @@ userPassword: secret
                 \item This secure channel is necessary for certain sensitive operations to be performed upon the token on behalf of the host
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=120mm]{tps-tks-smartcard-securechannel.png}
+                        \includegraphics[width=120mm]{Images/tps-tks-smartcard-securechannel.png}
                         \caption{TKS-TPS-Smartcard Securechannel}
                     \end{figure}
             \end{itemize}
         \item \textbf{Token Format}
             \begin{figure}[H]
                 \centering
-                \includegraphics[width=120mm]{TPS_Format.png}
+                \includegraphics[width=120mm]{Images/TPS_Format.png}
                 \caption{Token Format Operation Workflow. ~\cite{RedHat:securechannel}}
             \end{figure}
         \item \textbf{Token Enrollment}
             \begin{figure}[H]
                 \centering
-                \includegraphics[width=120mm]{TPS_Enrollment.png}
+                \includegraphics[width=120mm]{Images/TPS_Enrollment.png}
                 \caption{Token Enrollment Operation Workflow.~\cite{RedHat:securechannel}}
             \end{figure}
         \item \textbf{Server Side Key Generation}
             \begin{figure}[H]
                 \centering
-                \includegraphics[width=120mm]{tks-tps-drm-esc-enrollment3.png}
+                \includegraphics[width=120mm]{Images/tks-tps-drm-esc-enrollment3.png}
                 \caption{Server side key Generation}
             \end{figure}
     \end{itemize}
